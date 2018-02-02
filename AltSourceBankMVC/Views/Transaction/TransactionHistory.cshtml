@@ -1,0 +1,25 @@
+﻿@using AltSourceBankLibrary
+@model List<Transactions>
+<h2>Transaction History</h2>
+@if (Model != null && Model.Count != 0)
+{
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Type</th>
+        </tr>
+        @foreach (Transactions tran in Model)
+        {
+            <tr>
+                <td>@tran.Date.ToString()</td>
+                <td>@string.Format("{0:C}", tran.Amount)</td>
+                <td>@tran.Type</td>
+            </tr>
+        }
+    </table>
+} else
+{
+    <p>You have no transactions to display! Please make a deposit to get started.</p>
+}
+
